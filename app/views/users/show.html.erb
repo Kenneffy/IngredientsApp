@@ -1,0 +1,7 @@
+<div id="user-page">
+	<h1>Hope your day is going good <%= @user.username! %> !</h1>
+
+	<h1> I would rather you stick around but if you want to delete your account go head below</h1>
+
+	<%= button_to "DELETE", @user, method: :delete %>
+</div>
