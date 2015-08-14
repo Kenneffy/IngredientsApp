@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			session[:current_user_id] = @user.id
-			redirect_to recipes_index_path
+			redirect_to ingredients_recipes_index_path
 		else
 			redirect_to root_path
 		end
