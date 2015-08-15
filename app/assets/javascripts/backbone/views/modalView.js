@@ -59,12 +59,13 @@ App.Views.Modal = Backbone.View.extend( {
 				dataType: 'JSON'
 			} ).done( function( response ) {
 
-				alert( 'done' )
+				// alert( 'done' )
+				console.log( 'done' );
 			} ).fail( function( jqXHR, textStatus ) {
-				alert( jqXHR.responseText );
+				console.log( jqXHR.responseText );
 			} );
 		} ).fail( function( jqXHR, textStatus ) {
-			alert( jqXHR.responseText );
+			console.log( jqXHR.responseText );
 		} );
 
 
