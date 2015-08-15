@@ -28,9 +28,7 @@ class IngredientsRecipesController < ApplicationController
 	end
 
 	def create
-		binding.pry
 		check = IngredientsRecipe.find_by_f2f_recipe_id([:f2f_recipe_id])
-		binding.pry
 
 		if check
 			render json: check

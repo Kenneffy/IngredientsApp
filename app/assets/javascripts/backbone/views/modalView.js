@@ -10,7 +10,7 @@ App.Views.Modal = Backbone.View.extend( {
 	render: function() {
 		// console.log("in the render modal")
 		// console.log(this.model);
-		debugger;
+
 		App.modal.model.set( this.model.toJSON() );
 		this.$el.html( this.template( this.model.toJSON() ) );
 	},
@@ -29,8 +29,7 @@ App.Views.Modal = Backbone.View.extend( {
 	insertToDatabase: function() {
 		//create recipe first
 
-		var recipe_object = this.model.attributes.recipe
-		debugger;
+		var recipe_object = this.model.attributes.recipe;
 
 		$.ajax( {
 			type: 'POST',
@@ -47,7 +46,7 @@ App.Views.Modal = Backbone.View.extend( {
 		} ).done( function( response ) {
 
 			var response_id = response.id;
-			console.log( response_id );
+			// console.log( response_id );
 			$.ajax( {
 				type: 'POST',
 				data: {

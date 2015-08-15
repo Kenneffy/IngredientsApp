@@ -1,23 +1,25 @@
-App.Views.RecipeList = Backbone.View.extend({
+App.Views.RecipeList = Backbone.View.extend( {
 	el: '#recipe-list',
 	initialize: function() {
-		console.log('New List View');
-		this.listenTo(this.collection, 'reset', this.addAll);
+		console.log( 'New List View' );
+		this.listenTo( this.collection, 'reset', this.addAll );
 	},
 	addAll: function() {
-		this.collection.each(this.addRecipe, this);
+		this.collection.each( this.addRecipe, this );
 	},
-	addRecipe: function(recipeModel) {
-		var recipe = new App.Views.Recipe({ model: recipeModel});
-		this.$('#recipes').append(recipe.el)
+	addRecipe: function( recipeModel ) {
+		var recipe = new App.Views.Recipe( {
+			model: recipeModel
+		} );
+		this.$( '#recipes' ).append( recipe.el );
 	},
 	events: {
 		'click .search': 'search'
 	},
 	search: function() {
-		console.log('hello')
-		var term = escape($('#recipe-search').val());
-		this.collection.fetchByTerm(term); 
+		// console.log('hello')
+		var term = escape( $( '#recipe-search' ).val() );
+		this.collection.fetchByTerm( term );
 	}
 
-});
+} );
