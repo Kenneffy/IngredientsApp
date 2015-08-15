@@ -10,6 +10,7 @@ App.Views.Modal = Backbone.View.extend( {
 	render: function() {
 		// console.log("in the render modal")
 		// console.log(this.model);
+		debugger;
 		App.modal.model.set( this.model.toJSON() );
 		this.$el.html( this.template( this.model.toJSON() ) );
 	},
@@ -29,15 +30,16 @@ App.Views.Modal = Backbone.View.extend( {
 		//create recipe first
 
 		var recipe_object = this.model.attributes.recipe
+		debugger;
 
 		$.ajax( {
 			type: 'POST',
 			data: {
 				'ingredients_recipe': {
-					"name": recipe_object.name,
-					"endpoint": recipe_object.recipe_id,
-					"f2f_recipe_id": recipe_object.recipe_id,
-					"f2f_img_url": recipe_object.image_url
+					"name": recipe_object.recipe.title,
+					"endpoint": recipe_object.recipe.recipe_id,
+					"f2f_recipe_id": recipe_object.recipe.recipe_id,
+					"f2f_img_url": recipe_object.recipe.image_url
 				}
 			},
 			url: '/ingredients_recipes',
