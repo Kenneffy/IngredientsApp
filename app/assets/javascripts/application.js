@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//=require bootstrap
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require underscore
@@ -38,4 +39,8 @@ var App = {
 
 $(function() {
 	App.initialize();
+});
+
+$(function() {
+   $("#myModal").modal();
 });

@@ -9,6 +9,61 @@
 </head>
 <body>
 
+<!-- social media icons -->
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">Already a Member?</h4>
+      </div>
+      <div class="modal-body">
+
+			<% if session[:current_user_id]%>
+			   <h1>Welcome Back</h1>
+			   <%= link_to "#{User.find(session[:current_user_id]).username}", user_path(session[:current_user_id])%>
+			   <%= link_to "Logout", sessions_path, method: :delete %>
+			   <% else %>
+			   <!-- <p>Already a Member</p> -->
+			   <%= form_tag(sessions_path) do%> 
+			   <%= label_tag :username%>
+			   <%= text_field_tag :username%>
+			   <br>
+			   <%= label_tag :password %>
+			   <%= password_field_tag :password%>
+			   <br>
+			   <!-- this needs to bring user to home page -->
+			   <%= submit_tag "Login"%>
+			   <% end %>
+			 <% end %>
+			   
+			 <h1>Or Sign Up!</h1>	
+			  <%= form_for @user do |f|%>
+			  <%= f.label :username%><br>
+			  <%= f.text_field :username%><br>
+			  <%= f.label :password%><br>
+			  <%= f.password_field :password%><br>
+			  <%= f.label :password_confirmation%><br>
+			  <%= f.password_field :password_confirmation%><br>
+			  <br>
+			  <%= f.submit "Sign Up"%>
+			 <% end %>
+
+      </div>
+      <div class="modal-footer">
+          <div class="col-md-12">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+		  </div>	
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 	<header>
 	  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -26,26 +81,10 @@
   	</nav>
 	</header>
 
-	<div class= "container">
-		<div class="login">	
-			<% if session[:current_user_id]%>
-			   <h1>Welcome Back</h1>
-			   <%= link_to "#{User.find(session[:current_user_id]).username}", user_path(session[:current_user_id])%>
-			   <%= link_to "Logout", sessions_path, method: :delete %>
-				<% else %>
-			   <p>Already a Member</p>
-			   <%= form_tag(sessions_path) do%> 
-			   <%= label_tag :username%>
-			   <%= text_field_tag :username%>
-			   <br>
-			   <%= label_tag :password %>
-			   <%= password_field_tag :password%>
-			   <br>
-			   <%= submit_tag "Login"%>
-			   <% end %>
-			 <% end %>
-		</div>
-	</div>
+<div class="main">
+
+</div>
+
 
 	<div id='modal'></div>
 
@@ -57,18 +96,17 @@
       <p>We offer specialized care for reptiles, rodents, birds, and other exotic pets.</p>
     </article> -->
 
-<div class="page container">
-<h2>Recipe Lists</h2>
-	<article>
+
+	<div class="container row">
 		<div id='recipe-list'>
-			<div id='container search'>
-				<input type="text" name='search' id='recipe-search'>
-				<button class="search">search</button>
+				<input class= "input-group" type="search" name='search' id='recipe-search'>
+				<span class="input-group-btn">
+				<button class="search btn btn-default">search</button>
+				</span>
 				<div id='recipes'></div>
 			</div>
 		</div>
-	</article>
-</div>
+	</div>
 
 	<div id="goHere">
 	</div>
