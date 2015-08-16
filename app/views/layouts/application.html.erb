@@ -1,41 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>RecipesApp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	
-	<div class="login">
-	
-	<% if session[:current_user_id]%>
-	   <h1>Welcome Back</h1>
-	   <%= link_to "#{User.find(session[:current_user_id]).username}", user_path(session[:current_user_id])%>
-	   <%= link_to "Logout", sessions_path, method: :delete %>
-	   <% else %>
-	   <p>Already a Member</p>
-	   <%= form_tag(sessions_path) do%> 
-	   <%= label_tag :username%>
-	   <%= text_field_tag :username%>
-	   <br>
-	   <%= label_tag :password %>
-	   <%= password_field_tag :password%>
-	   <br>
-	   <%= submit_tag "Login"%>
-	   <% end %>
-	 <% end %>
+
+
+	<header>
+	  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	    <div class="container">
+	      <div class="navbar-header">
+	        <a class="navbar-brand" href="#featured">Ingredients Logo</a>
+	    	</div><!-- navbar-header -->
+	    	<div class="collapse navbar-collapse" id="collapse">
+	        <ul class="nav navbar-nav navbar-right">
+	          <li class="active"><a href="#featured">User Profile</a></li>
+	          <li><a href="#testimonials">Logout</a></li>
+	        </ul>
+	      </div><!-- collapse navbar-collapse -->      
+    	</div><!-- container -->
+  	</nav>
+	</header>
+
+	<div class= "container">
+		<div class="login">	
+			<% if session[:current_user_id]%>
+			   <h1>Welcome Back</h1>
+			   <%= link_to "#{User.find(session[:current_user_id]).username}", user_path(session[:current_user_id])%>
+			   <%= link_to "Logout", sessions_path, method: :delete %>
+				<% else %>
+			   <p>Already a Member</p>
+			   <%= form_tag(sessions_path) do%> 
+			   <%= label_tag :username%>
+			   <%= text_field_tag :username%>
+			   <br>
+			   <%= label_tag :password %>
+			   <%= password_field_tag :password%>
+			   <br>
+			   <%= submit_tag "Login"%>
+			   <% end %>
+			 <% end %>
+		</div>
 	</div>
 
 	<div id='modal'></div>
-	<div id='recipe-list'>
-		<div id='search'>
-			<input type="text" name='search' id='recipe-search'>
-			<button class="search">search</button>
-			<div id='recipes'></div>
+
+<!-- <div class="page" id="services">
+    <h2>Services</h2>
+    <article>
+      <img class="icon" src="images/icon-exoticpets.svg" alt="Icon">
+      <h3>Exotic Pets</h3>
+      <p>We offer specialized care for reptiles, rodents, birds, and other exotic pets.</p>
+    </article> -->
+
+<div class="page container">
+<h2>Recipe Lists</h2>
+	<article>
+		<div id='recipe-list'>
+			<div id='container search'>
+				<input type="text" name='search' id='recipe-search'>
+				<button class="search">search</button>
+				<div id='recipes'></div>
+			</div>
 		</div>
-	</div>
+	</article>
+</div>
 
 	<div id="goHere">
 	</div>

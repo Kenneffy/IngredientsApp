@@ -12,9 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
-//= require turbolinks
 //= require bootstrap-sprockets
+//= require turbolinks
 //= require underscore
 //= require backbone
 //= require handlebars
