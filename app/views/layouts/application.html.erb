@@ -7,13 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	
+
+
+<div class= "container">
 	<div class="login">
 	
 	<% if session[:current_user_id]%>
-	   <h1>Welcome Back</h1>
-	   <%= link_to "#{User.find(session[:current_user_id]).username}", user_path(session[:current_user_id])%>
+	   <h1>Welcome Back, <%= link_to "#{User.find(session[:current_user_id]).username}"%> </h1>
+
+
+	   <%= link_to "User Profile", user_path(session[:current_user_id])%>
 	   <%= link_to "Logout", sessions_path, method: :delete %>
+
 
 		<div id='modal'></div>
 		<div id='recipe-list'>
@@ -46,6 +51,6 @@
 <%= yield %>
 
 
-
+</div>
 </body>
 </html>
