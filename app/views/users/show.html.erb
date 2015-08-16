@@ -1,14 +1,20 @@
 <!-- User Profile Display --> 
 <div id="user-page">
 	<!-- Displays anything from users table -->
-	<h1> <%= @user.username %></h1>
+	<h1> <%= @user.username %>'s Board</h1>
 
+<div class="container col-sm-9">
+  <h2> Recipes I want to try </h2>
 	<%= @ingredients_recipes.each do |i| %>
 		<h1><%= i.f2f_recipe_id %></h1>
 		<img src="<%= i.f2f_img_url %>">
 	<% end %>
+  </div>
+</div>
 
-
+<div class="container col-sm-3">
+  <h2> Recipes I've tried </h2>
+</div>
 
 
 
