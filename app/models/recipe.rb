@@ -17,21 +17,3 @@ class Recipe
 
 end
 
-# class OMDB
-
-# 	API_ROOT = 'http://www.omdbapi.com/?'
-
-# 	def self.search(term)
-# 		query_string = [API_ROOT, 's=', term].join('')
-# 		query_string = URI.escape(query_string)
-# 		results = HTTParty.get(query_string)['Search']
-# 		return results
-# 	end
-
-# 	def self.search_by_id(imdbID)
-# 		query_string = [API_ROOT, 'i=', imdbID].join('')
-# 		results = HTTParty.get(query_string)
-# 		return results
-# 	end
-
-# end

@@ -1,9 +1,14 @@
 	
-<h1>{{recipe.title}}</h1>
-<img src="{{recipe.image_url}}">
-<p>{{recipe.f2f_url}}</p>
-<p>{{recipe.ingredients}}</p>
-<p>{{recipe.social_rank}}</p>
+<h1>{{recipe.recipe.title}}</h1>
+<img src="{{recipe.recipe.image_url}}">
+<p>{{recipe.recipe.f2f_url}}</p>
+<p>{{recipe.recipe.ingredients}}</p>
+<p>{{recipe.recipe.social_rank}}</p>
+<br>
+
+{{#each comments}}
+	<p>{{comment}}</p>
+{{/each}}
 
 <button class='comment'>Add Comment</button>
 <button class='try'>To Try</button>

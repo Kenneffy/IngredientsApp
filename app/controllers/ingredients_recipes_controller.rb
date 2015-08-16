@@ -11,12 +11,24 @@ class IngredientsRecipesController < ApplicationController
 	end
 
 	def show
-		search_results = IngredientsRecipe.search_by_id(params[:id])
-		render json: search_results
+		check = IngredientsRecipe.find_by_f2f_recipe_id(params[:id])
+
+		if check 
+			search_results = IngredientsRecipe.search_by_id(check.f2f_recipe_id)
+			full_data = {recipe: search_results, comments: check.comments}
+			render json: full_data
+
+		else
+			
+			search_results = IngredientsRecipe.search_by_id(params[:id])
+
+			full_data = {recipe: search_results, comments: []}
+			render json: full_data
+		end
 	end
 
 	def create
-		check = IngredientsRecipe.find_by_f2f_recipe_id(ingredients_recipe_params[:f2f_recipe_id])
+		check = IngredientsRecipe.find_by_f2f_recipe_id([:f2f_recipe_id])
 
 		if check
 			render json: check
