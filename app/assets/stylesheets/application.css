@@ -10,15 +10,15 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
-body, html {
-	width: 100%;
-	height: 100%;
-	font-family: Helvetica;
-}
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800|Roboto+Slab:400,100,300,700);
+
+/**  Basic Page CSS **/
+
 
 #movie-list section{
 	font-size: 30px;
@@ -26,7 +26,6 @@ body, html {
 	width: 30%;
 	text-align: center;
 }
-
 #modal {
 	display: none;
 	position: fixed;
@@ -37,3 +36,5 @@ body, html {
 	margin: 0 auto;
 	text-align: center;
 }
+
+
