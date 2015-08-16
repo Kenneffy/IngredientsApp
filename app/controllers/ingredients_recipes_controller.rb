@@ -6,8 +6,8 @@ class IngredientsRecipesController < ApplicationController
 
 	def search
 		search_results = IngredientsRecipe.search(params[:search])
-		recipes = search_results["recipes"]
-		render json: recipes
+		@recipes = search_results["recipes"]
+		render json: @recipes
 	end
 
 	def show
@@ -33,10 +33,10 @@ class IngredientsRecipesController < ApplicationController
 		if check
 			render json: check
 		else
-			ingredients_recipe = IngredientsRecipe.new(ingredients_recipe_params)
+			@ingredients_recipe = IngredientsRecipe.new(ingredients_recipe_params)
 
-			ingredients_recipe.save
-			render json: ingredients_recipe
+			@ingredients_recipe.save
+			render json: @ingredients_recipe
 		end
 	end
 
