@@ -1,7 +1,19 @@
+<!-- User Profile Display --> 
 <div id="user-page">
-	<h1>Hope your day is going good <%= @user.username! %> !</h1>
+	<!-- Displays anything from users table -->
+	<h1> <%= @user.username %></h1>
 
-	<h1> I would rather you stick around but if you want to delete your account go head below</h1>
+	<%= @ingredients_recipes.each do |i| %>
+		<h1><%= i.f2f_recipe_id %></h1>
+		<img src="<%= i.f2f_img_url %>">
+	<% end %>
 
-	<%= button_to "DELETE", @user, method: :delete %>
+
+
+
+
+
+
+
+
 </div>

@@ -17,12 +17,16 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		# user = User.find(params[:id]);
-		# user_tries = user.user_tries;
-		# # recipes
+		# binding.pry
+		@user = User.find(params[:id]);
+		@ingredients_recipes = IngredientsRecipe.find(@user.user_tries.pluck(:ingredients_recipe_id))
+		# @ingredients_recipe = IngredientsRecipe.where(:user_id => (params[:id]))
+		# puts @ingredients_recipe
+		# puts IngredientsRecipe
+		# # # recipes
 
 		# data = {
-		# 	user: user,
+		# 	user:key => "value",  user,
 		# 	user_tries: user_tries
 		# }
 
