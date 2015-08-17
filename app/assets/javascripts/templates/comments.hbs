@@ -1,5 +1,6 @@
 {{!-- comments.hbs --}}
 {{#each comments}}
-	<p>{{comment}}</p>
+	{{!-- <p>{{comment}}</p> --}}
+	<p>{{username}} said "{{comment.comment}}" @ {{comment.formatted_date}}</p>
 {{/each}}
 

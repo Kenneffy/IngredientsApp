@@ -10,7 +10,7 @@ App.Views.Modal = Backbone.View.extend( {
 	render: function() {
 		// console.log("in the render modal")
 		// console.log(this.model);
-
+		// debugger;
 		App.modal.model.set( this.model.toJSON() );
 		this.$el.html( this.template( this.model.toJSON() ) );
 	},
@@ -116,7 +116,8 @@ App.Views.Modal = Backbone.View.extend( {
 					dataType: 'JSON'
 
 				} ).done( function( response ) {
-					console.log( 'response' );
+					debugger;
+					console.log( response );
 					var holdMe = $( '#comments-holder' );
 					holdMe.empty();
 					var commentTemplate = HandlebarsTemplates[ 'comments' ];

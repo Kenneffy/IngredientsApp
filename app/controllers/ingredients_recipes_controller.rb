@@ -15,8 +15,20 @@ class IngredientsRecipesController < ApplicationController
 
 		if check 
 			search_results = IngredientsRecipe.search_by_id(check.f2f_recipe_id)
-			full_data = {recipe: search_results, comments: check.comments}
+			# binding.pry
+			arr = []
+			check.comments.each do |c|
+				temp = c.as_json
+				temp[:username] = c.user.username
+				temp[:avatar_url] = c.user.avatar_url
+				temp[:formatted_date] = c.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%A, %d %b %Y %l:%M %p")
+
+				arr.push temp
+			end
+
+			full_data = {recipe: search_results, comments: arr} #before we had check.comments here but it didnt have the username or avatar_url
 			render json: full_data
+			# binding.pry
 
 		else
 			
