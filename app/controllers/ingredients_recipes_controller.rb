@@ -11,12 +11,38 @@ class IngredientsRecipesController < ApplicationController
 	end
 
 	def show
-		search_results = IngredientsRecipe.search_by_id(params[:id])
-		render json: search_results
+		check = IngredientsRecipe.find_by_f2f_recipe_id(params[:id])
+
+		if check 
+			search_results = IngredientsRecipe.search_by_id(check.f2f_recipe_id)
+			# binding.pry
+			arr = []
+			check.comments.each do |c|
+				temp = c.as_json
+				temp[:username] = c.user.username
+				temp[:avatar_url] = c.user.avatar_url
+				temp[:formatted_date] = c.created_at.in_time_zone('Eastern Time (US & Canada)').strftime(" %l:%M %p %A, %d %b %Y")
+
+				arr.push temp
+			end
+
+			full_data = {recipe: search_results, comments: arr} #before we had check.comments here but it didnt have the username or avatar_url
+			render json: full_data
+			# binding.pry
+
+		else
+			
+			search_results = IngredientsRecipe.search_by_id(params[:id])
+
+			full_data = {recipe: search_results, comments: []}
+			render json: full_data
+		end
 	end
 
 	def create
-		check = IngredientsRecipe.find_by_f2f_recipe_id(ingredients_recipe_params[:f2f_recipe_id])
+		check = IngredientsRecipe.find_by_f2f_recipe_id(params[:ingredients_recipe][:f2f_recipe_id]
+)
+		#binding.pry
 
 		if check
 			render json: check

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   post '/user_tries' => 'user_tries#create'
   post '/user_tries/:id' => 'user_tries#edit'
 
+  get 'comments/:ingredients_recipe_id' => 'comments#index'
+  post 'comments' => 'comments#create'
+
 
   resources :users, only: [:new, :create, :show, :destroy]
 

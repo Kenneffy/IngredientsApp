@@ -1,12 +1,22 @@
-<div class="container">
-  <h1>{{recipe.title}}</h1>
-  <img src="{{recipe.image_url}}">
-  <p>{{recipe.f2f_url}}</p>
-  <p>{{recipe.ingredients}}</p>
-  <p>{{recipe.social_rank}}</p>
+<h1>{{recipe.recipe.title}}</h1>
+<img src="{{recipe.recipe.image_url}}">
+<p>{{recipe.recipe.f2f_url}}</p>
+<p>{{recipe.recipe.ingredients}}</p>
+<p>{{recipe.recipe.social_rank}}</p>
+<br>
 
-  <button class='comment'>Add Comment</button>
-  <button class='try'>To Try</button>
+<div id="comments-holder">
+	{{#each comments}}
+		<p>{{username}} said "{{comment}}" @ {{formatted_date}}</p>
 
-  <p><button class='close'>Close</button></p>
+	{{/each}}
 </div>
+
+<input type="text" class="incomment">
+<button class='comment'>Add Comment</button>
+
+
+<button class='try'>To Try</button>
+
+<p><button class='close'>Close</button></p>	
+
