@@ -11,5 +11,12 @@ class UserTriesController < ApplicationController
 		params.require(:user_try).permit(:try, :ingredients_recipe_id)
 	end
 
+	def edit
+		user_try = UserTry.find(params[:id])
+		user_try.try = false
+		user_try.save
+		redirect_to '/users/' + session[:current_user_id].to_s
+	end
+
 
 end

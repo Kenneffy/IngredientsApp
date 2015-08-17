@@ -32,7 +32,7 @@ App.Views.Modal = Backbone.View.extend({
 
 			 $.ajax({
 	            type: 'POST',
-	            data: {'ingredients_recipe' : {"name" : recipe_object.name, "endpoint" : recipe_object.recipe_id, "f2f_recipe_id" : recipe_object.recipe_id, "f2f_img_url" : recipe_object.image_url}},
+	            data: {'ingredients_recipe' : {"name" : recipe_object.title, "endpoint" : recipe_object.recipe_id, "f2f_recipe_id" : recipe_object.recipe_id, "f2f_img_url" : recipe_object.image_url}},
 	            url: '/ingredients_recipes',
 	            dataType: 'JSON'
 	        }).done(function( response ) {

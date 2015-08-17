@@ -5,16 +5,31 @@
 
 <div class="container col-sm-9">
   <h2> Recipes I want to try </h2>
-	<%= @ingredients_recipes.each do |i| %>
-		<h1><%= i.f2f_recipe_id %></h1>
+
+	<% @ingredients_recipes.each do |i| %>
+		<% if i.user_tries.first.try == true %>
+		<h1><%= i.name %></h1>
+
 		<img src="<%= i.f2f_img_url %>">
+		  <%= button_to "Tried", '/user_tries/' + i.user_tries.first.id.to_s, :class => "button"  %><br />
+
+		<% end %>
 	<% end %>
   </div>
-</div>
 
-<div class="container col-sm-3">
-  <h2> Recipes I've tried </h2>
-</div>
+<div class="container col-sm-9">
+  <h2> Recipes I have tried </h2>
+
+	<% @ingredients_recipes.each do |i| %>
+		<% if i.user_tries.first.try == false %>
+		<h1><%= i.name %></h1>
+
+		<img src="<%= i.f2f_img_url %>">
+		  <%= button_to "Tried", '/user_tries/' + i.user_tries.first.id.to_s, :class => "button"  %><br />
+
+		<% end %>
+	<% end %>
+  </div>
 
 
 

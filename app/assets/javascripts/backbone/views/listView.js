@@ -12,7 +12,7 @@ App.Views.RecipeList = Backbone.View.extend({
 		this.$('#recipes').append(recipe.el)
 	},
 	events: {
-		'click .search': 'search'
+		'click .search': 'search',
 	},
 	search: function() {
 		console.log('hello')

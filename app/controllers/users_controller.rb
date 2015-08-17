@@ -17,9 +17,10 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		# binding.pry
+		
 		@user = User.find(params[:id]);
 		@ingredients_recipes = IngredientsRecipe.find(@user.user_tries.pluck(:ingredients_recipe_id))
+		
 		# @ingredients_recipe = IngredientsRecipe.where(:user_id => (params[:id]))
 		# puts @ingredients_recipe
 		# puts IngredientsRecipe

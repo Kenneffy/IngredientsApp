@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post '/ingredients_recipes' => 'ingredients_recipes#create'
 
   post '/user_tries' => 'user_tries#create'
+  post '/user_tries/:id' => 'user_tries#edit'
 
 
   resources :users, only: [:new, :create, :show, :destroy]
