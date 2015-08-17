@@ -19,26 +19,8 @@
 
 /**  Basic Page CSS **/
 
-
-#movie-list section{
-	font-size: 30px;
-	float: left;
-	width: 30%;
-	text-align: center;
-}
-#modal {
-	display: none;
-	position: fixed;
-	width: 100%;
-	height: inherit;
-	background: rgba(0,0,0,.9);
-	color: lightgrey;
-	margin: 0 auto;
-	text-align: center;
-}
-
 body{
-  padding-top: 50px;
+  padding-top: 100px;
 }
 img {
   max-width: 200px;
@@ -48,6 +30,30 @@ img {
   border: 0;
 }
 
+
+
 footer .navbar-default {
   background: transparent;
+}
+
+/*#movie-list section{
+  font-size: 30px;
+  float: left;
+  width: 30%;
+  text-align: center;
+}*/
+#modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: inherit;
+  background: rgba(0,0,0,.9);
+  color: lightgrey;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/*navbar*/
+ul li {
+  display: inline;
 }
