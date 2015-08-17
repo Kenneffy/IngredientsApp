@@ -13,21 +13,27 @@
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#featured">Welcome back <span class="subhead"><%= "#{User.find(session[:current_user_id]).username}"%></span></a>
-      </div><!-- navbar-header -->
+
+  <div class="login">
+  
+  <% if session[:current_user_id]%>
+     <h1>Welcome Back</h1>
+     
       <div class="collapse navbar-collapse" id="collapse">
         <ul class="nav navbar-nav navbar-right">
+
+        <%= link_to "#{User.find(session[:current_user_id]).username}", user_path(session[:current_user_id])%>
+
           <li><%= link_to "User Profile", user_path(session[:current_user_id])%></li>
           <li><%= link_to "Logout", sessions_path, method: :delete %></li>
         </ul>        
       </div><!-- collapse navbar-collapse -->
     </div><!-- container -->
+ 
+
+
+
+  </div>
   </nav>
  </header>
 
@@ -35,25 +41,18 @@
 <div class= "container">
 
 	<div class="login">
-	
-	<% if session[:current_user_id]%>
-	   
-	  
-	  		
 		<div id='modal'></div>
 		<div id='recipe-list'>
+  		<div id='search'>
+  			<input type="text" name='search' id='recipe-search'>
+  			<button class="search">Search</button>
 
-		<div id='search'>
-			<input type="text" name='search' id='recipe-search'>
-			<button class="search">Search</button>
-
-			<div class= "page" id="services">
-		  	<div class="content container">	
-				
-					<div id='recipes'></div>
-				</div>
-			</div>
-		</div>
+  			<div class= "page" id="services">
+  		  	<div class="content container">	
+  					<div id='recipes'></div>
+  				</div>
+  			</div>
+  		</div>
 	</div>
 <!-- 
 	<div id="goHere"></div> -->
