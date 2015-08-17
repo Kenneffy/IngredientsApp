@@ -1,103 +1,99 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>RecipesApp</title>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
+  <head>
+    <title>RecipesApp</title>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.1/masonry.pkgd.min.js"></script>
+
+      <script type="text/javascript">
+        $(function() {
+          $('.grid').masonry({
+            // options
+            itemSelector: '.grid-item',
+            columnWidth: 200
+          });
+        });
+      </script>
+
+      <style type="text/css">
+        .grid-item { width: 200px; }
+        .grid-item--width2 { width: 400px; }
+      </style>
+
+    <%= csrf_meta_tags %>
+  </head>
 <body>
 
-
-<!-- <div class="navbar navbar-fixed-top navbar-bold" data-spy="affix" data-offset-top="1000">
-  <div class="container">
-    <div class="navbar-header">
-      <a href="#" class="navbar-brand">Home</a>
-      
-    </div> -->
-<!-- 
-    class=lead -->
-
-       <div class="header vert">
-          <div class="navbar navbar-fixed-top navbar-bold" >
-           <!--  <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> -->
-              <div class="container">
-                <div class="navbar-header">
-
-                  <div class="login">
-                  
-                  <% if session[:current_user_id]%>
-                     
-                      <div class="collapse navbar-collapse" id="collapse">
-                        <ul class="nav navbar-nav navbar-right">
-
-                          <h1>Welcome back, <%="#{User.find(session[:current_user_id]).username}"%></h1>
-
-                          <li><%= link_to "User Profile", user_path(session[:current_user_id])%></li>
-                          <li><%= link_to "Logout", sessions_path, method: :delete %></li>
-                        </ul>        
-                      </div><!-- collapse navbar-collapse -->
-                  </div>
-                </div>
-              </div>
-            </nav>
+<div class="container">
+  <div class="header vert">
+    <div class="navbar navbar-fixed-top navbar-bold" >
+    <!--  <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> -->
+        <div class="navbar-header">
+          <div class="login">
+            <% if session[:current_user_id]%>
+              <div class="collapse navbar-collapse" id="collapse">
+                <h1>Welcome back, <%="#{User.find(session[:current_user_id]).username}"%></h1>
+                    <ul class="nav navbar-nav navbar-right" id="navUl">
+                      <li><%= link_to "User Profile", user_path(session[:current_user_id])%></li>
+                      <li><%= link_to "Logout", sessions_path, method: :delete %></li>
+                    </ul>        
+              </div><!-- collapse navbar-collapse -->
           </div>
-      </div>
+        </div>
+    </div>
+  </div>
           
+  <div id='modal'></div>
 
-<div class= "container">
+  <div id='recipe-list'>
+    <div id='search' class="search-wrapper cf">
+      <input type="text" type="text" placeholder="Search here..." required="" name='search' id='recipe-search'>
+      <button class="search cf">Search</button>
+      <!-- <div class= "page" id="services"> -->
+      
+        <!-- </div> -->
+    </div>
 
-	<div class="login">
-		<div id='modal'></div>
-		<div id='recipe-list'>
-  		<div id='search'>
-  			<input type="text" name='search' id='recipe-search'>
-  			<button class="search">Search</button>
-
-  			<div class= "page" id="services">
-  		  	<div class="content container">	
-  					<div id='recipes'></div>
-  				</div>
-  			</div>
-  		</div>
-	</div>
-<!-- 
-	<div id="goHere"></div> -->
-
-	   <% else %>
-      <div class="container">
-          <div class="row">
-              <div class="col-sm-6 col-md-4 col-md-offset-4">
-                  <div class="account-wall">
-                    <div id="my-tab-content" class="tab-content">
-                  	   <p class="container form-signin login-title">Already a Member</p>
-
-                      <div class="container">
-                  	   <%= form_tag(sessions_path) do%> 
-
-                  	   <%= label_tag :username%>
-                       
-                  	   <%= text_field_tag :username%>
-                       
-                  	   <br>
-                  	   <%= label_tag :password %>
-                  	   <%= password_field_tag :password%>
-                  	   <br>
-                       <br>
-                  	   <%= submit_tag "Login", class: 'btn btn-primary'%>
-                       </div>
-                  	   <% end %>
-                  	 <% end %>
-                    </div>
-                	</div>
-              </div>
-          </div>
+    <div class="content container"> 
+      <div class="row">
+        <div id='recipes'></div>
       </div>
+      
+    </div>
+  </div>
 
-<%= yield %>
+  <% else %>
 
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+      <div class="account-wall">
+        <div id="my-tab-content" class="tab-content">
+          <p class="container form-signin login-title">Already a Member</p>
+
+          <div class="container">
+          <%= form_tag(sessions_path) do%> 
+
+          <%= label_tag :username%>
+                         
+          <%= text_field_tag :username%>
+                         
+          <br>
+          <%= label_tag :password %>
+          <%= password_field_tag :password%>
+          <br>
+          <%= submit_tag "Login", class: 'btn btn-primary'%>
+          </div>
+          <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  
+  <%= yield %>
 
 </div>
+
 </body>
 </html>
