@@ -379,8 +379,9 @@ box-shadow: 0 1px 1px rgba(0, 0, 0, .4) inset, 0 1px 0 rgba(255, 255, 255, .2);
 .search-wrapper input {
 width: 300px;
 height: 100px;
+position: absolute;
 padding: 10px 5px;
-float: left;
+left: 160%;
 font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
 border: 0;
 background: #EEE;
@@ -415,7 +416,7 @@ border-radius: 3px 0 0 3px;
 .search-wrapper button {
 overflow: visible;
 position: relative;
-float: right;
+left: 340%;
 border: 0;
 padding: 0;
 cursor: pointer;
