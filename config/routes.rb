@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   post '/user_tries' => 'user_tries#create'
 
-  get 'comments/index' => 'comments#index'
+  get 'comments/:ingredients_recipe_id' => 'comments#index'
   post 'comments' => 'comments#create'
 
 
