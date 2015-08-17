@@ -1,9 +1,11 @@
 <!-- User Profile Display --> 
 <div id="user-page">
     <!-- Displays anything from users table -->
-    <h1> <%= @user.username %>'s Board</h1>
+    <div id="username">
+      <h1> <%= @user.username %>'s Board</h1>
+    </div>
 
-<div class="container col-sm-9">
+<div class="leftColumn">
   <h2> Recipes I want to try </h2>
 
     <% @ingredients_recipes.each do |i| %>
@@ -17,7 +19,7 @@
     <% end %>
   </div>
 
-<div class="container col-sm-9">
+<div class="rightColumn">
   <h2> Recipes I have tried </h2>
 
     <% @ingredients_recipes.each do |i| %>
@@ -29,6 +31,10 @@
 
         <% end %>
     <% end %>
+  </div>
+
+  <div id="images">
+    <img src="../images/instagram.png">
   </div>
 
 
