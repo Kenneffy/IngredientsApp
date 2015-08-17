@@ -116,7 +116,6 @@ App.Views.Modal = Backbone.View.extend( {
 					dataType: 'JSON'
 
 				} ).done( function( response ) {
-					debugger;
 					console.log( response );
 					var holdMe = $( '#comments-holder' );
 					holdMe.empty();
