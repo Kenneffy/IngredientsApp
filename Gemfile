@@ -68,4 +68,3 @@ gem "rails-assets-backbone", source: "https://rails-assets.org"
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
-

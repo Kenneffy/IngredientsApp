@@ -23,7 +23,6 @@
       </div><!-- navbar-header -->
       <div class="collapse navbar-collapse" id="collapse">
         <ul class="nav navbar-nav navbar-right">
-          
           <li><%= link_to "User Profile", user_path(session[:current_user_id])%></li>
           <li><%= link_to "Logout", sessions_path, method: :delete %></li>
         </ul>        
