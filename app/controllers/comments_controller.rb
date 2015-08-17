@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
 			comment_hash = comment.as_json
 			comment_hash[:username] = comment.user.username
 			comment_hash[:avatar_url] = comment.user.avatar_url
-			comment_hash[:formatted_date] = comment.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%A, %d %b %Y %l:%M %p")
+			comment_hash[:formatted_date] = comment.created_at.in_time_zone('Eastern Time (US & Canada)').strftime(" %l:%M %p %A, %d %b %Y")
+			# comment_hash[:formatted_date] = comment.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%A, %d %b %Y %l:%M %p")
 
 
 			comments_array.push({

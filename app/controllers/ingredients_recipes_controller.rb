@@ -21,7 +21,7 @@ class IngredientsRecipesController < ApplicationController
 				temp = c.as_json
 				temp[:username] = c.user.username
 				temp[:avatar_url] = c.user.avatar_url
-				temp[:formatted_date] = c.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%A, %d %b %Y %l:%M %p")
+				temp[:formatted_date] = c.created_at.in_time_zone('Eastern Time (US & Canada)').strftime(" %l:%M %p %A, %d %b %Y")
 
 				arr.push temp
 			end
