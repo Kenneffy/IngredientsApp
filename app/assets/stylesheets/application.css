@@ -48,11 +48,10 @@ footer .navbar-default {
 
 #modal {
   display: none;
-
+  font-family: 'Delius Unicase', cursive;
   width: 100%;
   height: inherit;
-  background: rgba(0,0,0,.9);
-  color: lightgrey;
+  color: black;
   margin: 0 auto;
   text-align: center;
 }
