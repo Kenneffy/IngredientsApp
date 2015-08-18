@@ -1,40 +1,43 @@
 <!-- User Profile Display --> 
-<div id="user-page">
-    <!-- Displays anything from users table -->
-    <div id="nameOfUser">
-      <h1> <%= @user.username %>'s Board</h1>
+
+<div class="container">
+  <div id="user-page">
+      <!-- Displays anything from users table -->
+      <div id="nameOfUser">
+        <h1> <%= @user.username %>'s Board</h1>
+      </div>
+
+  <div class="leftColumn col-sm-6">
+    <h2> Recipes I want to try </h2>
+
+      <% @ingredients_recipes.each do |i| %>
+          <% if i.user_tries.first.try == true %>
+          <h1><%= i.name %></h1>
+
+          <img src="<%= i.f2f_img_url %>">
+            <%= button_to "Tried", '/user_tries/' + i.user_tries.first.id.to_s, :class => "button"  %><br />
+
+          <% end %>
+      <% end %>
     </div>
 
-<div class="leftColumn">
-  <h2> Recipes I want to try </h2>
+  <div class="rightColumn col-sm-6">
+    <h2> Recipes I have tried </h2>
 
-    <% @ingredients_recipes.each do |i| %>
-        <% if i.user_tries.first.try == true %>
-        <h1><%= i.name %></h1>
+      <% @ingredients_recipes.each do |i| %>
+          <% if i.user_tries.first.try == false %>
+          <h1><%= i.name %></h1>
 
-        <img src="<%= i.f2f_img_url %>">
-          <%= button_to "Tried", '/user_tries/' + i.user_tries.first.id.to_s, :class => "button"  %><br />
+          <img src="<%= i.f2f_img_url %>">
+          
 
-        <% end %>
-    <% end %>
+          <% end %>
+      <% end %>
+    </div>
+
+
+
+
+
   </div>
-
-<div class="rightColumn">
-  <h2> Recipes I have tried </h2>
-
-    <% @ingredients_recipes.each do |i| %>
-        <% if i.user_tries.first.try == false %>
-        <h1><%= i.name %></h1>
-
-        <img src="<%= i.f2f_img_url %>">
-        
-
-        <% end %>
-    <% end %>
-  </div>
-
-
-
-
-
 </div>
