@@ -41,6 +41,10 @@ footer .navbar-default {
   text-align: center;
 }*/
 
+.ingredients_recipe {
+  margin: 2rem;
+}
+
 #modal {
   display: none;
 
