@@ -239,9 +239,9 @@ box-shadow: 0 1px 1px rgba(0, 0, 0, .4) inset, 0 1px 0 rgba(255, 255, 255, .2);
 .search-wrapper input {
 width: 700px;
 height: 150px;
-position: relative;
+position: absolute;
 padding: 10px 5px;
-left: 160%;
+left: 70%;
 font: bold 30px 'Open Sans', 'trebuchet MS', 'Tahoma';
 border: 0;
 background: #EEE;
@@ -276,12 +276,12 @@ font-style: italic;
 .search-wrapper button {
 overflow: visible;
 position: relative;
-left: 340%;
+left: 380%;
 border: 0;
 padding: 0;
 cursor: pointer;
 height: 150px;
-width: 72px;
+width: 120px;
 font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
 color: white;
 text-transform: uppercase;
@@ -359,7 +359,7 @@ text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
 
 #recipe-search {
   font-family: 'Open Sans', sans-serif;
-  font-size: 80px;
+  font-size: 65px;
 }
 
 /*test*/
