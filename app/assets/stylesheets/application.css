@@ -22,6 +22,7 @@
 body{
   padding-top: 175px;
 }
+
 img {
   max-width: 200px;
 }
@@ -261,7 +262,7 @@ h1 {
 
 .navbar-bold {
   background-color:#e74228;
-  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Delius Unicase', cursive;;
 }
 
 .navbar-bold li a:hover, .navbar-bold li.active {
@@ -277,7 +278,7 @@ h1 {
   -webkit-text-stroke: 1px rgba(0,0,0,0.1);
   color:#431a6d;
   color:#fff;
-  font-family:'Bebas Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Delius Unicase', cursive;
 }
 
 .header .lead {
@@ -485,6 +486,7 @@ text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
   width: 200px;
   height: 200px;
   position: absolute;
+  font-family: 'Delius Unicase', cursive;
 }
 
 .rightColumn {
@@ -492,5 +494,10 @@ text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
   width: 200px;
   height: 200px;
   position: absolute;
+  font-family: 'Delius Unicase', cursive;
 }
 
+#nameOfUser {
+  font-family: 'Delius Unicase', cursive;
+  font-size: 50px;
+}
