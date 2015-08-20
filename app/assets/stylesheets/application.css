@@ -10,30 +10,356 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
-body, html {
-	width: 100%;
-	height: 100%;
-	font-family: Helvetica;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800|Roboto+Slab:400,100,300,700);
+
+/**  Basic Page CSS **/
+
+body{
+  padding-top: 175px;
 }
 
-#movie-list section{
-	font-size: 30px;
-	float: left;
-	width: 30%;
-	text-align: center;
+img {
+  max-width: 200px;
+}
+.navbar {
+  border-radius: 0;
+  border: 0;
+}
+
+footer .navbar-default {
+  background: transparent;
+}
+
+/*#movie-list section{
+  font-size: 30px;
+  float: left;
+  width: 30%;
+  text-align: center;
+}*/
+
+.ingredients_recipe {
+  margin: 2rem;
 }
 
 #modal {
-	display: none;
-	position: fixed;
-	width: 100%;
-	height: inherit;
-	background: rgba(0,0,0,.9);
-	color: lightgrey;
-	margin: 0 auto;
-	text-align: center;
+  display: none;
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  height: inherit;
+  color: black;
+  margin: 0 auto;
+  text-align: center;
 }
+
+/*login*/
+
+body{
+    background-color:#f5f5f5;
+}
+.form-signin
+{
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-control
+{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form-signin .form-control:focus
+{
+    z-index: 2;
+}
+.form-signin input[type="text"]
+{
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"]
+{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.account-wall
+{
+    margin-top: 40px;
+    padding: 20px 20px 20px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+}
+.login-title
+{
+    color: #555;
+    font-size: 22px;
+    font-weight: 400;
+    display: block;
+}
+
+/*buttons*/
+
+.btn {
+    padding: 8px 18px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+ 
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+.btn.sharp {
+  border-radius:0;
+}
+
+/*nav bar testing*/
+
+/* -- custom css for Bootstrap 3.x --*/
+
+/* move special fonts to HTML head for better performance */
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600');
+
+
+
+h1 {
+  font-size:35px; 
+}
+
+.icon-bar {
+   background-color:#fff;
+}
+
+/* header*/
+
+.header .btn-lg {
+   font-size:28px;
+   border-color:#eeeeee;
+   padding:15px;
+   background-color:transparent;
+   color:#ffffff;
+}
+
+.header .btn-lg:hover {
+   background-color:#eeeeee;
+   color:#777777;
+}
+
+.navbar a {
+  color:#fff;
+}
+
+.navbar-bold.affix {
+  background-color:#33ee67;
+}
+
+.navbar-bold {
+  background-color:#e74228;
+  font-family: 'Open Sans', sans-serif;;
+}
+
+.navbar-bold li a:hover, .navbar-bold li.active {
+  background-color:#fa8a5e;
+}
+
+.vert {
+  padding-top:4%;
+}
+
+.header h1 {
+  font-size:50px;
+  -webkit-text-stroke: 1px rgba(0,0,0,0.1);
+  color:#431a6d;
+  color:#fff;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.header .lead {
+  color:#eeeeee;
+  font-size:25px;
+  list-style: none;
+}
+
+footer {
+  padding: 100px 0;
+}
+
+/* -- end custom css for Bootstrap 3.x --*/
+
+/*search test*/
+.cf:before, .cf:after{
+    content:"";
+    display:table;
+}
+ 
+.cf:after{
+    clear:both;
+}
+ 
+.cf{
+    zoom:1;
+}    
+
+ /* Form wrapper styling */
+.search-wrapper {
+width: 220px;
+margin: 45px auto 50px auto;
+box-shadow: 0 1px 1px rgba(0, 0, 0, .4) inset, 0 1px 0 rgba(255, 255, 255, .2);
+}
+ 
+/* Form text input */
+ 
+.search-wrapper input {
+width: 700px;
+height: 150px;
+position: absolute;
+padding: 10px 5px;
+left: 70%;
+font: bold 30px 'Open Sans', 'trebuchet MS', 'Tahoma';
+border: 0;
+background: #EEE;
+border-radius: 3px 0 0 3px;
+}
+ 
+.search-wrapper input:focus {
+outline: 0;
+background: #fff;
+box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+}
+ 
+.search-wrapper input::-webkit-input-placeholder {
+color: #999;
+font-weight: normal;
+font-style: italic;
+}
+ 
+.search-wrapper input:-moz-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}
+ 
+.search-wrapper input:-ms-input-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}    
+ 
+/* Form submit button */
+.search-wrapper button {
+overflow: visible;
+position: relative;
+left: 380%;
+border: 0;
+padding: 0;
+cursor: pointer;
+height: 150px;
+width: 120px;
+font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+color: white;
+text-transform: uppercase;
+background: #D83C3C;
+border-radius: 0 3px 3px 0;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
+}
+   
+.search-wrapper button:hover{     
+    background: #e54040;
+}   
+   
+.search-wrapper button:active,
+.search-wrapper button:focus{   
+    background: #c42f2f;
+    outline: 0;   
+}
+ 
+.search-wrapper button:before { /* left arrow */
+    content: '';
+    position: absolute;
+    border-width: 8px 8px 8px 0;
+    border-style: solid solid solid none;
+    border-color: transparent #d83c3c transparent;
+    top: 12px;
+    left: -6px;
+}
+ 
+.search-wrapper button:hover:before{
+    border-right-color: #e54040;
+}
+ 
+.search-wrapper button:focus:before,
+.search-wrapper button:active:before{
+        border-right-color: #c42f2f;
+}      
+ 
+.search-wrapper button::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
+    border: 0;
+    padding: 0;
+}    
+
+.navbar ul {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 20px;
+  margin-right: 50px;
+}
+
+#navUl {
+  margin-right: 50px;
+}
+
+.leftColumn {
+  left: 20%;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.rightColumn {
+  right: 20%;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#nameOfUser {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 50px;
+}
+
+#recipe-search {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 65px;
+}
+
+/*test*/
